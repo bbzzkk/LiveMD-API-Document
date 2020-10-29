@@ -104,12 +104,19 @@ JWT token
 {
     result: true,
     status: 200,
-    data: {
+    data: [{
         name: "bbzzkk",
-        description: "LiveMD markdown editior service",
+        description: "realtime markdown editior service",
         thumbnail-small: "http://~~~",
         thumbnail-big: "http://~~",
-    }
+    },
+    {
+        name: "happyBirthday",
+        description: "earbud cases shopping mall",
+        thumbnail-small: "http://~~~",
+        thumbnail-big: "http://~~",
+    },
+    ]
 }
 ```
 {% endapi-method-response-example %}
@@ -148,7 +155,16 @@ JWT token
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    result: true,
+    status: 200,
+    data: {
+        name: "bbzzkk",
+        description: "LiveMD markdown editior service",
+        thumbnail-small: "http://~~~",
+        thumbnail-big: "http://~~",
+    }
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -181,7 +197,11 @@ JWT token
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="userid" type="string" required=false %}
+{% api-method-parameter name="thumbnail" type="string" required=false %}
+This field means thumbnail of team. We must be check whether this request is for updating thumbnail because of S3 costs. 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="userid" type="string" required=true %}
 This field means user id whose request to update. This must be check authorization of this team.
 {% endapi-method-parameter %}
 
