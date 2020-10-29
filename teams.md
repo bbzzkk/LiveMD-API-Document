@@ -36,8 +36,8 @@ This field means thumbnail of team.
 This field means name of team.
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="owner" type="string" required=true %}
-This field means owner of team.
+{% api-method-parameter name="userid" type="string" required=true %}
+This field means owner of team. He will be added to team member.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="description" type="string" required=false %}
@@ -72,7 +72,7 @@ Could not find a cake matching this query.
 
 {% api-method method="get" host="https://api.livemd.com" path="/api/v1/teams/:uid" %}
 {% api-method-summary %}
-Get  All Team by user id
+Get All Teams by user id
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -119,7 +119,7 @@ JWT token
 
 {% api-method method="get" host="https://api.livemd.com" path="/api/v1/teams/:tid" %}
 {% api-method-summary %}
-Get Team by team name 
+Get One Team by team name 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -179,6 +179,16 @@ This field means team id which have already been registered.
 JWT token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="userid" type="string" required=false %}
+This field means user id whose request to update. This must be check authorization of this team.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="description" type="string" required=false %}
+This field means description of team.
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
