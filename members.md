@@ -6,7 +6,7 @@ description: 'assignee: 이연주'
 
 {% api-method method="post" host="https://api.livemd.com" path="/api/v1/members" %}
 {% api-method-summary %}
-add member to team 
+invite member to team 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -69,7 +69,45 @@ Could not find a cake matching this query.
 
 {% api-method method="get" host="https://api.livemd.com" path="/api/v1/members" %}
 {% api-method-summary %}
-get authorization of member in the team by user
+get status of accept for invitation of team  
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authentication" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="teamId" type="string" required=true %}
+
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://api.livemd.com" path="/api/v1/members/auth" %}
+{% api-method-summary %}
+get authorization of user in the team
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -197,7 +235,7 @@ JWT token
 {% endapi-method-headers %}
 
 {% api-method-body-parameters %}
-{% api-method-parameter name="teamid" type="string" required=true %}
+{% api-method-parameter name="teamId" type="string" required=true %}
 Team which is requested for adding members now.
 {% endapi-method-parameter %}
 
