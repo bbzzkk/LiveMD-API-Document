@@ -89,6 +89,21 @@ id of user who created documents
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="sort" type="string" required=false %}
+value can be..  
+ex: id, created\_at, DESC
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="size" type="number" required=false %}
+page size
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="page" type="number" required=false %}
+a number of pages
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -107,13 +122,17 @@ JWT
         uid: "uid",
         docid: "docid",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         },
         id: "id2",
         uid: "uid2",
         docid: "docid2",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         }]
 }
 ```
@@ -174,7 +193,9 @@ JWT
         tid: "uid",
         docid: "docid",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         }
 }
 ```
@@ -412,13 +433,17 @@ JWT
         tid: "tid",
         docid: "docid",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         },
         id: "id2",
         tid: "tid2",
         docid: "docid2",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         }]
 }
 ```
@@ -479,7 +504,9 @@ JWT
         tid: "tid",
         docid: "docid",
         title: "title,
-        content: "content"
+        content: "content",
+        created_at: "2020-10-30 04:51:39",
+        modified_at: "2020-10-31 04:51:39"
         }
 }
 ```
