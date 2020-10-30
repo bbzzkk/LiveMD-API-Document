@@ -6,7 +6,7 @@ description: 'assignee: 이연주'
 
 {% api-method method="post" host="https://api.livemd.com" path="/api/v1/members" %}
 {% api-method-summary %}
-invite member to team 
+invite members to team 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -61,6 +61,38 @@ Could not find a cake matching this query.
     status: 404,
     result: false
 }
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://api.livemd.com" path="/api/v1/members" %}
+{% api-method-summary %}
+add member to team
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
