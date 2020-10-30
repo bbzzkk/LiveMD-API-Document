@@ -27,6 +27,12 @@ id of user who creates new documents
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="docId" type="string" required=true %}
+documents id which is made by client automatically.
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -95,8 +101,20 @@ JWT
 {
     result: true,
     status: 200,
-    data: {
-        }
+    data: [
+    {
+        id: "id",
+        uid: "uid",
+        docid: "docid",
+        title: "title,
+        content: "content"
+        },
+        id: "id2",
+        uid: "uid2",
+        docid: "docid2",
+        title: "title,
+        content: "content"
+        }]
 }
 ```
 {% endapi-method-response-example %}
@@ -152,6 +170,11 @@ JWT
     result: true,
     status: 200,
     data: {
+        id: "id",
+        tid: "uid",
+        docid: "docid",
+        title: "title,
+        content: "content"
         }
 }
 ```
@@ -196,6 +219,12 @@ id of specific documents
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="title" type="string" required=true %}
+title to be updated
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -377,8 +406,20 @@ JWT
 {
     result: true,
     status: 200,
-    data: {
-        "}
+    data: [
+    {
+        id: "id",
+        tid: "tid",
+        docid: "docid",
+        title: "title,
+        content: "content"
+        },
+        id: "id2",
+        tid: "tid2",
+        docid: "docid2",
+        title: "title,
+        content: "content"
+        }]
 }
 ```
 {% endapi-method-response-example %}
@@ -430,7 +471,17 @@ JWT
 {% endapi-method-response-example-description %}
 
 ```
-
+{
+    result: true,
+    status: 200,
+    data: {
+        id: "id",
+        tid: "tid",
+        docid: "docid",
+        title: "title,
+        content: "content"
+        }
+}
 ```
 {% endapi-method-response-example %}
 
