@@ -69,11 +69,12 @@ Could not find a cake matching this query.
 
 {% api-method method="get" host="https://api.livemd.com" path="/api/v1/members" %}
 {% api-method-summary %}
-get authorization of user 
+get authorization of member in the team by user
 {% endapi-method-summary %}
 
 {% api-method-description %}
-We need to check authorization of users to limit to access some services.
+We need to check authorization of users to limit to access some services.  
+/api/v1/members?teamId=bbzzkk&userId=yzz
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -85,11 +86,11 @@ JWT token
 {% endapi-method-headers %}
 
 {% api-method-query-parameters %}
-{% api-method-parameter name="teamid" required=true type="string" %}
+{% api-method-parameter name="teamId" required=true type="string" %}
 Team which is requested for adding members now.
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="userid" required=true type="string" %}
+{% api-method-parameter name="userId" required=true type="string" %}
 User who requests for adding members now. It must need to check authorization of add member
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
