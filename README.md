@@ -4,7 +4,7 @@ description: 'Assignee: 정소영'
 
 # Document \(문서관리\)
 
-{% api-method method="post" host="https://livemd.com" path="/api/v1/documents/:uid" %}
+{% api-method method="post" host="https://livemd.com" path="/api/v1/documents" %}
 {% api-method-summary %}
 Create User Documents
 {% endapi-method-summary %}
@@ -16,17 +16,17 @@ You have to check authorization of creating documents from team server.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="uid" type="string" required=false %}
-id of user who creates new documents
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="uid" type="string" required=true %}
+id of user who creates new documents
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 
 {% api-method-body-parameters %}
 {% api-method-parameter name="docId" type="string" required=true %}
@@ -67,23 +67,17 @@ Could not find a cake matching this query.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://livemd.com" path="/api/v1/documents/:uid" %}
+{% api-method method="get" host="https://livemd.com" path="/api/v1/documents" %}
 {% api-method-summary %}
 Get All User Documents
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This end point allows you to get all documents of specific user.
+This end point allows you to get all documents of specific user. 
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="uid" type="string" required=true %}
-id of user who created documents
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
 JWT
@@ -91,6 +85,10 @@ JWT
 {% endapi-method-headers %}
 
 {% api-method-query-parameters %}
+{% api-method-parameter name="uid" type="string" required=true %}
+id of user who owns the documents
+{% endapi-method-parameter %}
+
 {% api-method-parameter name="sort" type="string" required=false %}
 value can be..  
 ex: id, created\_at, DESC
@@ -122,7 +120,6 @@ a number of pages
         uid: "uid",
         docid: "docid",
         title: "title,
-        content: "content",
         created_at: "2020-10-30 04:51:39",
         modified_at: "2020-10-31 04:51:39"
         },
@@ -130,7 +127,6 @@ a number of pages
         uid: "uid2",
         docid: "docid2",
         title: "title,
-        content: "content",
         created_at: "2020-10-30 04:51:39",
         modified_at: "2020-10-31 04:51:39"
         }]
@@ -154,7 +150,7 @@ a number of pages
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://livemd.com" path="/api/v1/documents/:docid" %}
+{% api-method method="get" host="https://livemd.com" path="/api/v1/documents/{docId}" %}
 {% api-method-summary %}
 Get One of User Documents
 {% endapi-method-summary %}
@@ -166,7 +162,7 @@ This end point allows you to get one of specific user documents.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific document
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -217,7 +213,7 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://livemd.com" path="/api/v1/documents/:docid" %}
+{% api-method method="put" host="https://livemd.com" path="/api/v1/documents/{docId}" %}
 {% api-method-summary %}
 Update Title of User Documents
 {% endapi-method-summary %}
@@ -230,7 +226,7 @@ You have to check authorization of updating title from team server.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific documents
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -280,7 +276,7 @@ title to be updated
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://livemd.com" path="/api/v1/documents/:docid" %}
+{% api-method method="delete" host="https://livemd.com" path="/api/v1/documents/{docId}" %}
 {% api-method-summary %}
 Delete User Documents
 {% endapi-method-summary %}
@@ -292,7 +288,7 @@ This end point allows you to delete user documents.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific documents
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -336,7 +332,7 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://livemd.com" path="/api/v1/documents/:tid" %}
+{% api-method method="post" host="https://livemd.com" path="/api/v1/documents" %}
 {% api-method-summary %}
 Create Team Documents
 {% endapi-method-summary %}
@@ -348,17 +344,23 @@ You have to check authorization of creating documents from team server.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tid" type="string" required=false %}
-id of team who creates new documents
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="tid" type="string" required=true %}
+id of team who creates new documents
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+
+{% api-method-body-parameters %}
+{% api-method-parameter name="docId" type="string" required=true %}
+id of documents created by client automatically.
+{% endapi-method-parameter %}
+{% endapi-method-body-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -393,7 +395,7 @@ Could not find a cake matching this query.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://livemd.com" path="/api/v1/documents/:tid" %}
+{% api-method method="get" host="https://livemd.com" path="/api/v1/documents" %}
 {% api-method-summary %}
 Get All Team Documents
 {% endapi-method-summary %}
@@ -404,17 +406,29 @@ This end point allows you to get all documents of specific user.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="tid" type="string" required=true %}
-id of team who created documents
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
 {% api-method-headers %}
 {% api-method-parameter name="Authentication" type="string" required=true %}
 JWT
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="tid" type="string" required=true %}
+id of team who owns the documents
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="size" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="page" type="string" required=false %}
+
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="sort" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -433,7 +447,6 @@ JWT
         tid: "tid",
         docid: "docid",
         title: "title,
-        content: "content",
         created_at: "2020-10-30 04:51:39",
         modified_at: "2020-10-31 04:51:39"
         },
@@ -441,7 +454,6 @@ JWT
         tid: "tid2",
         docid: "docid2",
         title: "title,
-        content: "content",
         created_at: "2020-10-30 04:51:39",
         modified_at: "2020-10-31 04:51:39"
         }]
@@ -465,7 +477,7 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://livemd.com/api" path="/v1/documents/:docid" %}
+{% api-method method="get" host="https://livemd.com/api" path="/v1/documents/{docId}" %}
 {% api-method-summary %}
 Get One of Team Documents
 {% endapi-method-summary %}
@@ -477,7 +489,7 @@ This end point allows you to get one of specific team documents.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific document
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -528,7 +540,7 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://livemd.com" path="/api/v1/documents/:docid" %}
+{% api-method method="put" host="https://livemd.com" path="/api/v1/documents/{docId}" %}
 {% api-method-summary %}
 Update Title of Team Documents
 {% endapi-method-summary %}
@@ -541,7 +553,7 @@ You have to check authorization of updating title from team server.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific documents
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -585,7 +597,7 @@ JWT
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://livemd.com" path="/api/v1/documents/:docid" %}
+{% api-method method="delete" host="https://livemd.com" path="/api/v1/documents/{docId}" %}
 {% api-method-summary %}
 Delete Team Documents
 {% endapi-method-summary %}
@@ -597,7 +609,7 @@ This end point allows you to delete team documents.
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="docid" type="string" required=true %}
+{% api-method-parameter name="docId" type="string" required=true %}
 id of specific documents
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
