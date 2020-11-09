@@ -119,14 +119,12 @@ default page = 0
     data: [
     {
         id: "id",
-        uid: "uid",
         docid: "docid",
         title: "title,
         created_at: "2020-10-30 04:51:39",
         modified_at: "2020-10-31 04:51:39"
         },
         id: "id2",
-        uid: "uid2",
         docid: "docid2",
         title: "title,
         created_at: "2020-10-30 04:51:39",
@@ -213,7 +211,6 @@ JWT
     status: 200,
     data: {
         id: "id",
-        tid: "uid",
         docid: "docid",
         title: "title,
         content: "content",
